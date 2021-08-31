@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControl, Grid, Row, Col } from 'react-bootstrap';
+import { Form, Grid } from 'semantic-ui-react';
 import moment from "moment-timezone";
 import DateTimeRangeContainer from './lib/index';
 import { isFirefoxBelow53 } from './lib/utils/BrowserVersion';
@@ -23,9 +23,9 @@ class Wrapper extends React.Component {
   }
 
   applyCallback(startDate, endDate) {
-    console.log('Apply Callback');
-    console.log(startDate.format('DD-MM-YYYY HH:mm'));
-    console.log(endDate.format('DD-MM-YYYY HH:mm'));
+    // console.log('Apply Callback');
+    // console.log(startDate.format('DD-MM-YYYY HH:mm'));
+    // console.log(endDate.format('DD-MM-YYYY HH:mm'));
     this.setState({
       start: startDate,
       end: endDate,
@@ -41,6 +41,10 @@ class Wrapper extends React.Component {
     // console.log("On Click Callback");
     // console.log(newStart.format("DD-MM-YYYY HH:mm"));
     this.setState({ start: newStart });
+  }
+
+  setStartDate(val) {
+    this.setState({start: val});
   }
 
   renderVanillaPicker(ranges, local, maxDate) {
@@ -65,7 +69,16 @@ class Wrapper extends React.Component {
           rangeCallback={this.rangeCallback}
           smartMode
         >
-          <FormControl
+            <Form.Input
+                id="formControlsTextB"
+                type="text"
+                label="Text"
+                placeholder="Enter text"
+                style={{ cursor: 'pointer' }}
+                disabled={disabled}
+                value={value} 
+            />
+          {/* <FormControl
             id="formControlsTextB"
             type="text"
             label="Text"
@@ -73,7 +86,7 @@ class Wrapper extends React.Component {
             style={{ cursor: 'pointer' }}
             disabled={disabled}
             value={value}
-          />
+          /> */}
         </DateTimeRangeContainer>
         <br />
       </div>
@@ -114,7 +127,7 @@ class Wrapper extends React.Component {
             rangeCallback={this.rangeCallback}
             smartMode
           >
-            <FormControl
+            <Form.Input
               id="formControlsTextB"
               type="text"
               label="Text"
@@ -155,7 +168,7 @@ class Wrapper extends React.Component {
             twelveHoursClock={true}
             smartMode
           >
-            <FormControl
+            <Form.Input
               id="formControlsTextB"
               type="text"
               label="Text"
@@ -182,9 +195,9 @@ class Wrapper extends React.Component {
       <Grid>
         <div onClick={this.onClick}> Click Me to test the Date Picker in its condensed form</div>
         <br />
-        <Row className="show-grid" style={{ textAlign: 'center' }}>
-          <Col xs={3} />
-          <Col xs={6} md={4} id="DateTimeRangeContainerMobileMode">
+        <Grid.Row className="show-grid" style={{ textAlign: 'center' }}>
+          <Grid.Column width={3} />
+          <Grid.Column width={6} md={4} id="DateTimeRangeContainerMobileMode">
             <DateTimeRangeContainer
               ranges={ranges}
               start={this.state.start}
@@ -193,7 +206,7 @@ class Wrapper extends React.Component {
               applyCallback={this.applyCallback}
               smartMode
             >
-              <FormControl
+              <Form.Input
                 id="formControlsTextB"
                 type="text"
                 label="Text"
@@ -203,9 +216,9 @@ class Wrapper extends React.Component {
                 value={value}
               />
             </DateTimeRangeContainer>
-          </Col>
-          <Col xs={3} md={4} />
-        </Row>
+          </Grid.Column>
+          <Grid.Column width={3} md={4} />
+        </Grid.Row>
         <br />
       </Grid>
     );
@@ -225,9 +238,9 @@ class Wrapper extends React.Component {
           Click Me to test the Date Picker in Mobile Mode disabled. Normally it would be in condensed form at this size.
         </div>
         <br />
-        <Row className="show-grid" style={{ textAlign: 'center' }}>
-          <Col xs={3} />
-          <Col xs={6} md={4} id="DateTimeRangeContainerNoMobileMode">
+        <Grid.Row className="show-grid" style={{ textAlign: 'center' }}>
+          <Grid.Column width={3} />
+          <Grid.Column width={6} md={4} id="DateTimeRangeContainerNoMobileMode">
             <DateTimeRangeContainer
               ranges={ranges}
               start={this.state.start}
@@ -237,7 +250,7 @@ class Wrapper extends React.Component {
               smartMode
               noMobileMode
             >
-              <FormControl
+              <Form.Input
                 id="formControlsTextB"
                 type="text"
                 label="Text"
@@ -247,9 +260,9 @@ class Wrapper extends React.Component {
                 value={value}
               />
             </DateTimeRangeContainer>
-          </Col>
-          <Col xs={3} md={4} />
-        </Row>
+          </Grid.Column>
+          <Grid.Column width={3} md={4} />
+        </Grid.Row>
         <br />
       </Grid>
     );
@@ -269,9 +282,9 @@ class Wrapper extends React.Component {
           Click Me to test the Date Picker in Mobile Mode forced. Normally it would be in full screen form at this size.
         </div>
         <br />
-        <Row className="show-grid" style={{ textAlign: 'center' }}>
-          <Col xs={3} />
-          <Col xs={6} md={4} id="DateTimeRangeContainerForceMobileMode">
+        <Grid.Row className="show-grid" style={{ textAlign: 'center' }}>
+          <Grid.Column width={3} />
+          <Grid.Column width={6} md={4} id="DateTimeRangeContainerForceMobileMode">
             <DateTimeRangeContainer
               ranges={ranges}
               start={this.state.start}
@@ -281,7 +294,7 @@ class Wrapper extends React.Component {
               smartMode
               forceMobileMode
             >
-              <FormControl
+              <Form.Input
                 id="formControlsTextB"
                 type="text"
                 label="Text"
@@ -291,9 +304,9 @@ class Wrapper extends React.Component {
                 value={value}
               />
             </DateTimeRangeContainer>
-          </Col>
-          <Col xs={3} md={4} />
-        </Row>
+          </Grid.Column>
+          <Grid.Column width={3} md={4} />
+        </Grid.Row>
         <br />
       </Grid>
     );
@@ -310,10 +323,10 @@ class Wrapper extends React.Component {
       <Grid>
         <div onClick={this.onClick}> Click me to test the picker in open Left mode with mobile mode enabled</div>
         <br />
-        <Row className="show-grid" style={{ textAlign: 'center' }}>
-          <Col xs={3} />
-          <Col xs={3} md={4} />
-          <Col xs={6} md={4} id="DateTimeRangeContainerLeftOpenMode">
+        <Grid.Row className="show-grid" style={{ textAlign: 'center' }}>
+          <Grid.Column width={3} />
+          <Grid.Column width={3} md={4} />
+          <Grid.Column width={6} md={4} id="DateTimeRangeContainerLeftOpenMode">
             <DateTimeRangeContainer
               ranges={ranges}
               start={this.state.start}
@@ -323,7 +336,7 @@ class Wrapper extends React.Component {
               smartMode
               leftMode
             >
-              <FormControl
+              <Form.Input
                 id="formControlsTextB"
                 type="text"
                 label="Text"
@@ -333,8 +346,8 @@ class Wrapper extends React.Component {
                 value={value}
               />
             </DateTimeRangeContainer>
-          </Col>
-        </Row>
+          </Grid.Column>
+        </Grid.Row>
         <br />
       </Grid>
     );
@@ -357,7 +370,7 @@ class Wrapper extends React.Component {
           descendingYears={descendingYears}
           years={[2010, 2020]}
         >
-          <FormControl
+          <Form.Input
             id="formControlsTextB"
             type="text"
             label="Text"
@@ -397,7 +410,7 @@ class Wrapper extends React.Component {
           descendingYears={descendingYears}
           years={[2010, 2020]}
         >
-          <FormControl
+          <Form.Input
             id="formControlsTextB"
             type="text"
             label="Text"
@@ -447,7 +460,7 @@ class Wrapper extends React.Component {
           }}
           darkMode
         >
-          <FormControl
+          <Form.Input
             id="formControlsTextB"
             type="text"
             label="Text"
@@ -484,7 +497,7 @@ class Wrapper extends React.Component {
           pastSearchFriendly
           smartMode
         >
-          <FormControl
+          <Form.Input
             id="formControlsTextB"
             type="text"
             label="Text"

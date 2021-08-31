@@ -1,8 +1,9 @@
 import React from 'react';
 import '../style/DateTimeRange.css';
-import { Glyphicon } from 'react-bootstrap';
+import Glyphicon from '@strongdm/glyphicon';
 import PropTypes from 'prop-types';
 import {addFocusStyle, darkTheme, lightTheme} from '../utils/StyleUtils';
+import { Dropdown } from 'semantic-ui-react';
 
 class MonthYearSelector extends React.Component {
   constructor(props) {
@@ -52,15 +53,15 @@ class MonthYearSelector extends React.Component {
     return (
       <Glyphicon
         glyph={icon}
-        style={{ cursor: 'pointer' }}
+        style={{ cursor: 'pointer', marginTop: "0.5em" }}
         onClick={() => onClickHandler(previous, next)}
       />
     );
   }
 
   render() {
-    let months = this.createCalendarMonths(this.props.months);
-    let years = this.createYears(this.props.years);
+    // let months = this.createCalendarMonths(this.props.months);
+    // let years = this.createYears(this.props.years);
     let theme = this.props.darkMode ? darkTheme : lightTheme;
     let leftArrow = this.createGlyph(
       'chevron-left',
@@ -78,7 +79,6 @@ class MonthYearSelector extends React.Component {
     monthFocusStyle = addFocusStyle(this.state.monthFocus, monthFocusStyle);
     let yearFocusStyle = {};
     yearFocusStyle = addFocusStyle(this.state.yearFocus, yearFocusStyle);
-
     return (
       <div className="monthYearContainer">
         <div className="multipleContentOnLine leftChevron">{leftArrow}</div>
@@ -88,14 +88,14 @@ class MonthYearSelector extends React.Component {
           onBlur={this.monthBlur}
           style={monthFocusStyle}
         >
-          <select
-            id={'MonthSelector_' + this.props.mode}
-            value={this.props.months[this.props.month]}
-            onChange={this.props.changeMonthCallback}
-            style={theme}
-          >
-            {months}
-          </select>
+            <Dropdown
+                id={'MonthSelector_' + this.props.mode}
+                value={this.props.months[this.props.month]}
+                onChange={this.props.changeMonthCallback}
+                style={theme}
+                selection
+                options={Object.keys(this.props.months).map((m) => {return {key: m, value: this.props.months[m], text: this.props.months[m]}})}
+            />
         </div>
         <div
           className="multipleContentOnLine"
@@ -103,14 +103,22 @@ class MonthYearSelector extends React.Component {
           onBlur={this.yearBlur}
           style={yearFocusStyle}
         >
-          <select
+            <Dropdown
+                id={'YearSelector_' + this.props.mode}
+                value={this.props.year}
+                onChange={this.props.changeYearCallback}
+                style={theme}
+                selection
+                options={Object.keys(this.props.years).map((m) => {return {key: m, value: this.props.years[m], text: this.props.years[m]}})}
+            />
+          {/* <select
             id={'YearSelector_' + this.props.mode}
             value={this.props.year}
             onChange={this.props.changeYearCallback}
             style={theme}
           >
             {years}
-          </select>
+          </select> */}
         </div>
         <div className="multipleContentOnLine rightChevron">{rightArrow}</div>
       </div>

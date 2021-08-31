@@ -76,8 +76,23 @@ class Calendar extends React.Component {
   }
 
   changeMonthCallback(event) {
-    for (let i = 0; i < event.target.length; i++) {
-      if (event.target[i].value === event.target.value) {
+    let inputMonth = event.currentTarget.children[0].textContent;
+    let months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+    ];
+    for (let i = 0; i < months.length; i++) {
+      if (months[i] === inputMonth) {
         this.setState({ month: i });
       }
     }
@@ -132,7 +147,7 @@ class Calendar extends React.Component {
   }
 
   changeYearCallback(event) {
-    this.setState({ year: parseInt(event.target.value) });
+    this.setState({ year: parseInt(event.currentTarget.children[0].textContent)});
   }
 
   render() {

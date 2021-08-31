@@ -1,6 +1,5 @@
 import React from 'react';
 import '../style/DateTimeRange.css';
-// import Glyphicon from '@strongdm/glyphicon';
 import { Input, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import momentPropTypes from 'react-moment-proptypes';

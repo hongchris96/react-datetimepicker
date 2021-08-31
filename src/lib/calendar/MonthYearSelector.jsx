@@ -60,8 +60,6 @@ class MonthYearSelector extends React.Component {
   }
 
   render() {
-    // let months = this.createCalendarMonths(this.props.months);
-    // let years = this.createYears(this.props.years);
     let theme = this.props.darkMode ? darkTheme : lightTheme;
     let leftArrow = this.createGlyph(
       'chevron-left',
@@ -111,14 +109,6 @@ class MonthYearSelector extends React.Component {
                 selection
                 options={Object.keys(this.props.years).map((m) => {return {key: m, value: this.props.years[m], text: this.props.years[m]}})}
             />
-          {/* <select
-            id={'YearSelector_' + this.props.mode}
-            value={this.props.year}
-            onChange={this.props.changeYearCallback}
-            style={theme}
-          >
-            {years}
-          </select> */}
         </div>
         <div className="multipleContentOnLine rightChevron">{rightArrow}</div>
       </div>

@@ -23,9 +23,6 @@ class Wrapper extends React.Component {
   }
 
   applyCallback(startDate, endDate) {
-    // console.log('Apply Callback');
-    // console.log(startDate.format('DD-MM-YYYY HH:mm'));
-    // console.log(endDate.format('DD-MM-YYYY HH:mm'));
     this.setState({
       start: startDate,
       end: endDate,
@@ -38,8 +35,6 @@ class Wrapper extends React.Component {
 
   onClick() {
     let newStart = moment(this.state.start).subtract(3, 'days');
-    // console.log("On Click Callback");
-    // console.log(newStart.format("DD-MM-YYYY HH:mm"));
     this.setState({ start: newStart });
   }
 
@@ -78,15 +73,6 @@ class Wrapper extends React.Component {
                 disabled={disabled}
                 value={value} 
             />
-          {/* <FormControl
-            id="formControlsTextB"
-            type="text"
-            label="Text"
-            placeholder="Enter text"
-            style={{ cursor: 'pointer' }}
-            disabled={disabled}
-            value={value}
-          /> */}
         </DateTimeRangeContainer>
         <br />
       </div>

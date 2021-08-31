@@ -211,12 +211,13 @@
 
 #Hour_start, #Minutes_start, #Hour_end, #Minutes_end {
     padding: 0;
-    padding-top: 0.4em;
-    padding-bottom: 0.4em;
+    padding-top: 0.71em;
+    padding-bottom: 0.71em;
+    padding-left: 0.3em;
     text-align: center;
 }
 
-#MonthSelector_start, #MonthSelector_end, #YearSelector_start, #YearSelector_end {
+#MonthSelector_start, #MonthSelector_end, #YearSelector_start, #YearSelector_end, #Meridiem_start, #Meridiem_end {
     min-width: unset;
 }
 
@@ -231,4 +232,14 @@
 
 #daterangepicker > div:nth-child(3) > div.fromDateHourContainer > div.fields > div > i {
     margin-top: 0.46em;
+}
+
+.disabled.field > .ui.disabled.input {
+    width: 100%;
+}
+
+.disabled.field > .ui.disabled.input > input {
+    background-color: #eee;
+    opacity: 1;
+    color: black;
 }

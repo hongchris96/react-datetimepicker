@@ -1,6 +1,6 @@
 import React from 'react';
 import '../style/DateTimeRange.css';
-import { Input, Icon } from 'semantic-ui-react';
+import { Input, Icon, Dropdown } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import momentPropTypes from 'react-moment-proptypes';
 import { generateHours, generateMinutes } from '../utils/TimeFunctionUtils';
@@ -116,9 +116,17 @@ class TimeField extends React.Component {
   renderSelectField(valueInput, onChangeInput, optionsInput, id) {
     let theme = this.props.darkMode ? darkTheme : lightTheme;
     return (
-      <select id={id + '_' + this.props.mode} style={theme} value={valueInput} onChange={onChangeInput}>
-        {optionsInput}
-      </select>
+      <Dropdown
+        selection
+        id={id + '_' + this.props.mode}
+        style={theme}
+        value={valueInput}
+        onChange={onChangeInput}
+        options={[
+            {key: "am", value: "am", text: "AM"},
+            {key: "pm", value: "pm", text: "PM"}
+        ]}
+      />
     );
   }
 
@@ -169,7 +177,7 @@ class TimeField extends React.Component {
           </div>
           {this.props.twelveHoursClock && (
             <div className="multipleContentOnLine">
-              {this.renderNumberField(meridiem, this.handleMeridiemChange, meridiems, 'Meridiem')}
+              {this.renderSelectField(meridiem, this.handleMeridiemChange, meridiems, 'Meridiem')}
             </div>
           )}
         </div>

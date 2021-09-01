@@ -11,7 +11,6 @@ import MonthYearSelector from '../../calendar/MonthYearSelector';
 import TimeField from '../../date_picker/TimeField';
 import DateField from '../../date_picker/DateField';
 import { DateTimeRangePicker, momentFormat } from '../../DateTimeRangePicker';
-import { Form } from 'semantic-ui-react';
 
 configure({ adapter: new Adapter() });
 let now = new Date();

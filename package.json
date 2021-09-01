@@ -64,6 +64,6 @@
     "react-test-renderer": "^15.6.2"
   },
   "publishConfig": {
-      "registry": "https://npm.pkg.github.com/"
+      "registry": "https://npm.pkg.github.com/@hongchris96"
   }
 }

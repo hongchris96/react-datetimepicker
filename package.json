@@ -1,5 +1,5 @@
 {
-  "name": "react-datetimepicker-semantic-ui",
+  "name": "@hongchris96/react-datetimepicker-semantic-ui",
   "version": "1.0.14",
   "license": "MIT",
   "main": "dist/index.js",
@@ -64,6 +64,6 @@
     "react-test-renderer": "^15.6.2"
   },
   "publishConfig": {
-      "registry": "https://npm.pkg.github.com/@hongchris96"
+      "registry": "https://npm.pkg.github.com/"
   }
 }

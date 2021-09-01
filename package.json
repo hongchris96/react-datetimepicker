@@ -1,5 +1,5 @@
 {
-  "name": "react-datetimepicker-semantic-ui",
+  "name": "@hongchris96/react-datetimepicker-semantic-ui",
   "version": "1.0.14",
   "license": "MIT",
   "main": "dist/index.js",

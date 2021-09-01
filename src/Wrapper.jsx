@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Grid } from 'semantic-ui-react';
+import { Form, Grid, Container, Button, Header } from 'semantic-ui-react';
 import moment from "moment-timezone";
 import DateTimeRangeContainer from './lib/index';
 import { isFirefoxBelow53 } from './lib/utils/BrowserVersion';
@@ -67,7 +67,7 @@ class Wrapper extends React.Component {
             <Form.Input
                 id="formControlsTextB"
                 type="text"
-                label="Text"
+
                 placeholder="Enter text"
                 style={{ cursor: 'pointer' }}
                 disabled={disabled}
@@ -116,7 +116,7 @@ class Wrapper extends React.Component {
             <Form.Input
               id="formControlsTextB"
               type="text"
-              label="Text"
+
               placeholder="Enter text"
               style={{ cursor: 'pointer' }}
               disabled={disabled}
@@ -157,7 +157,7 @@ class Wrapper extends React.Component {
             <Form.Input
               id="formControlsTextB"
               type="text"
-              label="Text"
+
               placeholder="Enter text"
               style={{ cursor: 'pointer' }}
               disabled={disabled}
@@ -195,7 +195,7 @@ class Wrapper extends React.Component {
               <Form.Input
                 id="formControlsTextB"
                 type="text"
-                label="Text"
+
                 placeholder="Enter text"
                 style={{ cursor: 'pointer' }}
                 disabled={disabled}
@@ -239,7 +239,7 @@ class Wrapper extends React.Component {
               <Form.Input
                 id="formControlsTextB"
                 type="text"
-                label="Text"
+
                 placeholder="Enter text"
                 style={{ cursor: 'pointer' }}
                 disabled={disabled}
@@ -283,7 +283,7 @@ class Wrapper extends React.Component {
               <Form.Input
                 id="formControlsTextB"
                 type="text"
-                label="Text"
+
                 placeholder="Enter text"
                 style={{ cursor: 'pointer' }}
                 disabled={disabled}
@@ -325,7 +325,7 @@ class Wrapper extends React.Component {
               <Form.Input
                 id="formControlsTextB"
                 type="text"
-                label="Text"
+
                 placeholder="Enter text"
                 style={{ cursor: 'pointer' }}
                 disabled={disabled}
@@ -359,7 +359,6 @@ class Wrapper extends React.Component {
           <Form.Input
             id="formControlsTextB"
             type="text"
-            label="Text"
             placeholder="Enter text"
             style={{ cursor: 'pointer' }}
             disabled
@@ -399,7 +398,6 @@ class Wrapper extends React.Component {
           <Form.Input
             id="formControlsTextB"
             type="text"
-            label="Text"
             placeholder="Enter text"
             style={{ cursor: 'pointer' }}
             disabled
@@ -449,7 +447,6 @@ class Wrapper extends React.Component {
           <Form.Input
             id="formControlsTextB"
             type="text"
-            label="Text"
             placeholder="Enter text"
             style={{ cursor: 'pointer' }}
             disabled={disabled}
@@ -486,7 +483,6 @@ class Wrapper extends React.Component {
           <Form.Input
             id="formControlsTextB"
             type="text"
-            label="Text"
             placeholder="Enter text"
             style={{ cursor: 'pointer' }}
             disabled
@@ -548,6 +544,8 @@ class Wrapper extends React.Component {
     let local = {
       format: 'DD-MM-YYYY HH:mm',
       sundayFirst: false,
+      toDate: "To",
+      fromDate: "From"
     };
     let maxDate = moment(end).add(24, 'hour');
     let pickersRender = <div>
@@ -557,7 +555,7 @@ class Wrapper extends React.Component {
         {this.renderGridPickerNoMobileMode(ranges, local, maxDate)}
         {this.renderGridPickerForceMobileMode(ranges, local, maxDate)}
         {this.renderGridPickerLeftOpen(ranges, local, maxDate)}
-        {this.renderPickerAutoApplySmartModeDisabled(ranges, local, maxDate, true)}}
+        {this.renderPickerAutoApplySmartModeDisabled(ranges, local, maxDate, true)}
         {this.renderPickerSmartModeDisabledCustomStyling(ranges, local, maxDate, true)}
         {this.renderPickerAutoApplyPastFriendly(ranges, local, maxDate, false)}
         {this.renderStandalone(ranges, local, maxDate, false)}
@@ -576,39 +574,38 @@ class Wrapper extends React.Component {
       pickers = pickersRender;
     }
     return (
-      <div className="container">
-        <h1>Welcome to the Advanced Date Time Picker Demo</h1>
-          <button id={'Reset-Toggle'} onClick={() => this.setState({
+      <Container>
+        <Header as="h1">Welcome to the Advanced Date Time Picker Demo</Header>
+          <Button id={'Reset-Toggle'} onClick={() => this.setState({
             secondDisplay: false,
             timezoneDisplay: false,
             twelveHour: false
-            })
-          }>
+            })}>
             Reset
-          </button>
-          <button id={'Second-Toggle'} onClick={() => this.setState({
+          </Button>
+          <Button id={'Second-Toggle'} onClick={() => this.setState({
             secondDisplay: !this.state.secondDisplay,
             timezoneDisplay: false,
             twelveHour: false
             })}>
             Second Picker Toggle
-          </button>
-          <button id={'Timezone-Toggle'} onClick={() =>  this.setState({
+          </Button>
+          <Button id={'Timezone-Toggle'} onClick={() =>  this.setState({
             secondDisplay: false,
             timezoneDisplay: !this.state.timezoneDisplay,
             twelveHour: false
             })}>
             Timezone Picker Toggle
-          </button>
-          <button id={'12-Hour-Toggle'} onClick={() =>  this.setState({
+          </Button>
+          <Button id={'12-Hour-Toggle'} onClick={() =>  this.setState({
             twelveHour: !this.state.twelveHour,
             timezoneDisplay: false,
             secondDisplay: false,
             })}>
             12 Hour Toggle
-          </button>
+          </Button>
         {pickers}
-      </div>
+      </Container>
     );
   }
 }

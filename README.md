@@ -1,4 +1,6 @@
-# React Advanced  Date Time Range Picker
+# React Advanced  Date Time Range Picker (Semantic UI version)
+All React Boostrap Components and methods below are replaced with Semantic UI Equivalents
+## forked from React Advanced Date Time Range Picker repo: v0ltoz/react-datetimepicker
 [![CircleCI](https://circleci.com/gh/v0ltoz/react-datetimepicker.svg?style=svg)](https://circleci.com/gh/v0ltoz/react-datetimepicker)
 [![](https://badge.fury.io/js/react-advanced-datetimerange-picker.svg)](https://www.npmjs.com/package/react-advanced-datetimerange-picker)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3b5c72752ef7cf3932b9/maintainability)](https://codeclimate.com/github/v0ltoz/react-datetimepicker/maintainability)

@@ -26,7 +26,6 @@
     "@strongdm/glyphicon": "^0.0.5",
     "moment": "^2.22.2",
     "prop-types": "^15.6.2",
-    "react-bootstrap": "^0.31.3",
     "react-dot-fragment": "^0.2.7",
     "react-moment-proptypes": "^1.6.0",
     "semantic-ui-css": "^2.4.1",
@@ -64,6 +63,6 @@
     "react-test-renderer": "^15.6.2"
   },
   "publishConfig": {
-      "registry": "https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/"
   }
 }
